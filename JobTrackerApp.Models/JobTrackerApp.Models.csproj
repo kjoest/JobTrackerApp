@@ -75,6 +75,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobApplicationModels\JobApplicationCreate.cs" />
+    <Compile Include="JobApplicationModels\JobApplicationDetail.cs" />
+    <Compile Include="JobApplicationModels\JobApplicationEdit.cs" />
+    <Compile Include="JobApplicationModels\JobApplicationListDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
