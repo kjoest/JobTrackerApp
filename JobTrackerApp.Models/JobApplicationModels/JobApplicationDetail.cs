@@ -18,6 +18,7 @@ namespace JobTrackerApp.Models.JobApplicationModels
         public string ContactInformation { get; set; }
         public string ApplicationNotes { get; set; }
 
+        public DateTimeOffset ApplicationDate { get; set; }
         public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

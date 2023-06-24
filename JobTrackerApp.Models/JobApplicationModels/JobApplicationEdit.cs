@@ -8,6 +8,7 @@ namespace JobTrackerApp.Models.JobApplicationModels
 {
     public class JobApplicationEdit
     {
+        public int JobApplicationId { get; set; }
         public string ApplicationMaterials { get; set; }
         public string ContactPerson { get; set; }
         public string ContactInformation { get; set; }

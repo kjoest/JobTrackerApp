@@ -75,11 +75,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobApplicationServices\JobApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobTrackerApp.Data\JobTrackerApp.Data.csproj">
+      <Project>{DB537094-5DAB-423A-A83A-8DD2D3377831}</Project>
+      <Name>JobTrackerApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobTrackerApp.Models\JobTrackerApp.Models.csproj">
+      <Project>{8FDE299C-5D06-4B40-895E-EAF217EC42FE}</Project>
+      <Name>JobTrackerApp.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
