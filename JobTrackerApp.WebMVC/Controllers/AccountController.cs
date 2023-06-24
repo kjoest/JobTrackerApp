@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using JobTrackerApp.WebMVC.Models;
+using JobTrackerApp.WebMVC.Data;
 
 namespace JobTrackerApp.WebMVC.Controllers
 {
