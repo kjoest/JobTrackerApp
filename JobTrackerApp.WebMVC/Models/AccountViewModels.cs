@@ -109,4 +109,10 @@ namespace JobTrackerApp.WebMVC.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    public class AuthenticationViewModel
+    {
+        public LoginViewModel Login { get; set; }
+        public RegisterViewModel Register { get; set; }
+    }
 }
