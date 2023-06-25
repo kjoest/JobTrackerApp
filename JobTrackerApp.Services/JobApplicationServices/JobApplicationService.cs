@@ -54,13 +54,6 @@ namespace JobTrackerApp.Services.JobApplicationServices
                         JobApplicationId = j.JobApplicationId,
                         JobTitle = j.JobTitle,
                         CompanyName = j.CompanyName,
-                        ApplicationMethod = j.ApplicationMethod,
-                        ApplicationMaterials = j.ApplicationMaterials,
-                        ContactPerson = j.ContactPerson,
-                        ContactInformation = j.ContactInformation,
-                        ApplicationNotes = j.ApplicationNotes,
-                        ApplicationDate = j.ApplicationDate,
-                        ModifiedDate = j.ModifiedDate
                     });
 
                 return query.ToArray();
