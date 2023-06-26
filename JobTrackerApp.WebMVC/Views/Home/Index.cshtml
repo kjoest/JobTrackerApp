@@ -53,6 +53,7 @@
             </div>
             <div class="form-group">
                 @Html.PasswordFor(m => m.Register.ConfirmPassword, new { @class = "register-user-info", @placeholder = "Confirm Password" })
+                @Html.ActionLink("ForgotPassword?", "ForgotPassword", "Account", routeValues: null, htmlAttributes: new { @id = "forgot-password" })
             </div>
             <button type="submit" value="Register" id="btn-top">Register</button>
         }
