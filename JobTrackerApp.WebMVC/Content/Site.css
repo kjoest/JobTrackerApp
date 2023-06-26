@@ -1,23 +1,179 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
 }
 
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #d3d7ed;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    margin: auto;
+    background-color: #f2f2f2;
+    width: 600px;
+    /* height: 1000px;*/
+    height: 50%;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    border-radius: 15px;
+    display: flex;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    margin: 0 auto;
+}
+
+.header-menu {
+    margin: auto 0;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    color: #000050;
+    font-weight: 900;
+    font-size: 1.2em;
+}
+
+li {
+    cursor: pointer;
+}
+
+#header-login-button {
+    background-color: transparent;
+    border: none;
+}
+
+#header-login-button {
+    background-color: #fff;
+    padding: 10px 30px 10px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition-duration: 400ms;
+}
+
+#content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/*.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;*/  /*Center horizontally */
+    /*gap: 20px;
+}*/
+
+.login-input-group {
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    width: 70%;
+}
+
+.user-info {
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    margin: 0 auto;
+    background-color: #e5ebf5;
+    border: solid #efebf5 2px;
+    border-radius: 15px;
+    text-indent: 20px;
+    font-weight: 500;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#forgot-password {
+    text-decoration: none;
+    color: #777a84;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: auto;
+    display: inline-block;
+    float: right;
+}
+
+#signin-button {
+    width: 100%;
+    height: 40px;
+    background-color: #313af1;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 400;
+    transition-duration: 200ms;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
+/*.dl-horizontal dt {
     white-space: normal;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
@@ -27,4 +183,4 @@ textarea {
 .navbar-inverse .navbar-toggle:focus {
     background-color: #777;
     border-color: #fff
-}
+}*/
