@@ -13,6 +13,8 @@ body {
     height: 100vh;
 }
 
+/* Main Log In Page*/
+
 main {
     margin: auto;
     background-color: #f2f2f2;
@@ -108,3 +110,65 @@ li {
     font-weight: 400;
     transition-duration: 200ms;
 }
+
+/* Job Application Home Page */
+
+.categories {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.vl1 {
+    border-left: 3px solid #ccc;
+    height: 80vh;
+    position: absolute;
+    left: 30%;
+    margin-left: -3px;
+    top: 0;
+}
+
+.vl2 {
+    border-left: 3px solid #ccc;
+    height: 80vh;
+    position: absolute;
+    left: 67%;
+    margin-left: -3px;
+    top: 0;
+}
+
+.card-container {
+    display: block;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    overflow: hidden;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card-body {
+    margin-bottom: 10px;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.card-footer {
+    text-align: center;
+}
+
+    .card-footer a {
+        margin-right: 10px;
+    }

@@ -19,38 +19,79 @@
         @TempData["SaveResult"]
     </div>
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.JobApplicationId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JobTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </th>
-    </tr>
 
+<div class="categories">
+    <div class="category">
+        <h2>Active Applications</h2>
+    </div>
+    <div class="vl1"></div>
+    <div class="category">
+        <h2>Interview Scheduled</h2>
+    </div>
+    <div class="vl2"></div>
+    <div class="category">
+        <h2>Rejected Applications</h2>
+    </div>
+</div>
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.JobApplicationId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobApplicationId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyName)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.JobApplicationId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.JobApplicationId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.JobApplicationId })
+                </td>
+            </tr>
+        }
+    </table>*@
+
+<div class="card-container">
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobApplicationId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.JobApplicationId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.JobApplicationId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.JobApplicationId })
-            </td>
-        </tr>
+        <div class="card">
+            <div class="card-body">
+                <p>@Html.DisplayFor(modelItem => item.JobApplicationId) </p>
+                <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
+            </div>
+        </div>
     }
+</div>
 
-</table>
+<div id="logout-button">
+    @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul>
+            <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
+        </ul>
+    }
+</div>
+
+<script>
+
+</script>
