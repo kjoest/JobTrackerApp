@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using JobTrackerApp.Models.JobApplicationModels;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace JobTrackerApp.WebMVC.Models

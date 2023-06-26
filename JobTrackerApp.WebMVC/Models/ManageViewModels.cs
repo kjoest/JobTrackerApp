@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using JobTrackerApp.Models.JobApplicationModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 

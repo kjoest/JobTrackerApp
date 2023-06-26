@@ -1,5 +1,6 @@
 ﻿using JobTrackerApp.Models.JobApplicationModels;
 using JobTrackerApp.Services.JobApplicationServices;
+using JobTrackerApp.WebMVC.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;

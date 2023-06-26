@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JobTrackerApp.Data.JobApplication;
+using JobTrackerApp.WebMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
