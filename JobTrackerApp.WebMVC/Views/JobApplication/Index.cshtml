@@ -35,7 +35,8 @@
             });
         }
         <div class="category-section">
-            <h2>Active Applications</h2>
+            <h2 class="card-heading">Active Applications</h2>
+            <hr />
             @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplication))
             {
                 <div class="card" data-id="@item.JobApplicationId">
@@ -50,7 +51,8 @@
         </div>
 
         <div class="category-section">
-            <h2>Interview Scheduled</h2>
+            <h2 class="card-heading">Interview Scheduled</h2>
+            <hr />
             @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewedScheduled))
             {
                 <div class="card" data-id="@item.JobApplicationId">
@@ -65,7 +67,8 @@
         </div>
 
         <div class="category-section">
-            <h2>Rejected Applications</h2>
+            <h2 class="card-heading">Rejected Applications</h2>
+            <hr />
             @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications))
             {
                 <div class="card" data-id="@item.JobApplicationId">
