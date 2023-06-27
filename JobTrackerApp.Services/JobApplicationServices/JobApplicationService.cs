@@ -55,6 +55,7 @@ namespace JobTrackerApp.Services.JobApplicationServices
                         JobApplicationId = j.JobApplicationId,
                         JobTitle = j.JobTitle,
                         CompanyName = j.CompanyName,
+                        Category = j.Category
                     });
 
                 return query.ToArray();

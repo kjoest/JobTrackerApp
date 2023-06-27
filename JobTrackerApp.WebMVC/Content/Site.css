@@ -113,10 +113,14 @@ li {
 
 /* Job Application Home Page */
 
+.job-application-page {
+    height: 100vh;
+}
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-top: 10rem;
 }
 
 .card {
@@ -127,11 +131,28 @@ li {
     padding: 10px;
     background-color: #f9f9f9;
     overflow: hidden;
+    background-color: #b9bfe1;
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
 .card-header {
     text-align: center;
     margin-bottom: 10px;
+}
+
+.display-category {
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    justify-content: center;
+    text-align: center;
 }
 
 .card-body {
