@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Job Applications</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -19,20 +19,6 @@
         @TempData["SaveResult"]
     </div>
 }
-
-<div class="categories">
-    <div class="category">
-        <h2>Active Applications</h2>
-    </div>
-    <div class="vl1"></div>
-    <div class="category">
-        <h2>Interview Scheduled</h2>
-    </div>
-    <div class="vl2"></div>
-    <div class="category">
-        <h2>Rejected Applications</h2>
-    </div>
-</div>
 
 @*<table class="table">
         <tr>
@@ -72,7 +58,7 @@
 <div class="card-container">
     @foreach (var item in Model)
     {
-        <div class="card">
+        <div class="card" data-id="@item.JobApplicationId">
             <div class="card-body">
                 <p>@Html.DisplayFor(modelItem => item.JobApplicationId) </p>
                 <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
@@ -93,5 +79,13 @@
 </div>
 
 <script>
+    function handleCardClick(event) {
+        const jobApplicationId = event.currentTarget.dataset.id;
+        window.location.href = "/JobApplication/Details/" + jobApplicationId;
+    }
 
+    const cardElements = document.querySelectorAll('.card');
+    cardElements.forEach(card => {
+        card.addEventListener('click', handleCardClick);
+    });
 </script>

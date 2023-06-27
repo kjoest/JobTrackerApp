@@ -31,6 +31,7 @@ namespace JobTrackerApp.Services.JobApplicationServices
                 ContactPerson = model.ContactPerson,
                 ContactInformation = model.ContactInformation,
                 ApplicationNotes = model.ApplicationNotes,
+                Category = model.Category,
                 ApplicationDate = DateTimeOffset.Now
             };
 
@@ -79,6 +80,7 @@ namespace JobTrackerApp.Services.JobApplicationServices
                     ContactInformation = entity.ContactInformation,
                     ApplicationNotes = entity.ApplicationNotes,
                     ApplicationDate = entity.ApplicationDate,
+                    Category = entity.Category,
                     ModifiedDate = entity.ModifiedDate
                 };
             }
@@ -96,6 +98,7 @@ namespace JobTrackerApp.Services.JobApplicationServices
                 entity.ContactPerson = model.ContactPerson;
                 entity.ContactInformation = model.ContactInformation;
                 entity.ApplicationNotes = model.ApplicationNotes;
+                entity.Category = model.Category;
                 entity.ModifiedDate = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using static JobTrackerApp.Data.Enums.JobApplicationEnums;
 
 namespace JobTrackerApp.Models.JobApplicationModels
 {
@@ -17,6 +18,7 @@ namespace JobTrackerApp.Models.JobApplicationModels
         public string ContactPerson { get; set; }
         public string ContactInformation { get; set; }
         public string ApplicationNotes { get; set; }
+        public JobApplicationCategory Category { get; set; }
 
         public DateTimeOffset ApplicationDate { get; set; }
         public DateTimeOffset? ModifiedDate { get; set; }

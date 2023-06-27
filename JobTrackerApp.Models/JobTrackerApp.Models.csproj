@@ -85,5 +85,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobTrackerApp.Data\JobTrackerApp.Data.csproj">
+      <Project>{DB537094-5DAB-423A-A83A-8DD2D3377831}</Project>
+      <Name>JobTrackerApp.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

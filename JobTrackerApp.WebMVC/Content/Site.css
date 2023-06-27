@@ -113,32 +113,8 @@ li {
 
 /* Job Application Home Page */
 
-.categories {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-.vl1 {
-    border-left: 3px solid #ccc;
-    height: 80vh;
-    position: absolute;
-    left: 30%;
-    margin-left: -3px;
-    top: 0;
-}
-
-.vl2 {
-    border-left: 3px solid #ccc;
-    height: 80vh;
-    position: absolute;
-    left: 67%;
-    margin-left: -3px;
-    top: 0;
-}
-
 .card-container {
-    display: block;
+    display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
 }

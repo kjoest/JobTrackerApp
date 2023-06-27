@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\JobApplicationEnums.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="JobApplication\JobApplication.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
