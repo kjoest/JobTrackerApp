@@ -20,87 +20,85 @@
     </div>
 }
 <div class="job-application-page">
-    <div class="card-container">
-        @{
-            var orderedApplications = Model.OrderBy(item =>
-            {
-                if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewedScheduled)
-                    return 0;
-                else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplication)
-                    return 1;
-                else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications)
-                    return 2;
-                else
-                    return 3;
-            });
+<div class="card-container">
+    @{
+        var orderedApplications = Model.OrderBy(item =>
+        {
+            if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewedScheduled)
+                return 0;
+            else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplication)
+                return 1;
+            else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications)
+                return 2;
+            else
+                return 3;
+        }).ThenBy(item => item.CompanyName);
+    }
+
+    <div class="category-section">
+        <h2 class="card-heading">Active Applications</h2>
+        <hr />
+        @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplication))
+        {
+            <div class="card" data-id="@item.JobApplicationId" style="background-color: #e66464;">
+                <div class="card-body">
+                    <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                    <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
+                    <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
+                </div>
+            </div>
         }
-        <div class="category-section">
-            <h2 class="card-heading">Active Applications</h2>
-            <hr />
-            @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplication))
-            {
-                <div class="card" data-id="@item.JobApplicationId">
-                    <div class="card-body">
-                        <p>@Html.DisplayFor(modelItem => item.JobApplicationId) </p>
-                        <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
-                        <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
-                        <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <div class="category-section">
-            <h2 class="card-heading">Interview Scheduled</h2>
-            <hr />
-            @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewedScheduled))
-            {
-                <div class="card" data-id="@item.JobApplicationId">
-                    <div class="card-body">
-                        <p>@Html.DisplayFor(modelItem => item.JobApplicationId) </p>
-                        <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
-                        <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
-                        <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <div class="category-section">
-            <h2 class="card-heading">Rejected Applications</h2>
-            <hr />
-            @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications))
-            {
-                <div class="card" data-id="@item.JobApplicationId">
-                    <div class="card-body">
-                        <p>@Html.DisplayFor(modelItem => item.JobApplicationId) </p>
-                        <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
-                        <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
-                        <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <div id="logout-button">
-            @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
-            {
-                @Html.AntiForgeryToken()
-                <ul>
-                    <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
-                </ul>
-            }
-        </div>
     </div>
 
-    <script>
-        function handleCardClick(event) {
-            const jobApplicationId = event.currentTarget.dataset.id;
-            window.location.href = "/JobApplication/Details/" + jobApplicationId;
+    <div class="category-section">
+        <h2 class="card-heading">Interview Scheduled</h2>
+        <hr />
+        @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewedScheduled))
+        {
+            <div class="card" data-id="@item.JobApplicationId" style="background-color: #6cf8e1;">
+                <div class="card-body">
+                    <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                    <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
+                    <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
+                </div>
+            </div>
         }
+    </div>
+    <div class="category-section">
+        <h2 class="card-heading">Rejected Applications</h2>
+        <hr />
+        @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications))
+        {
+            <div class="card" data-id="@item.JobApplicationId" style="background-color: #fff0c8;">
+                <div class="card-body">
+                    <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                    <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
+                    <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
+                </div>
+            </div>
+        }
+    </div>
 
-        const cardElements = document.querySelectorAll('.card');
-        cardElements.forEach(card => {
-            card.addEventListener('click', handleCardClick);
-        });
-    </script>
+    <div id="logout-button">
+        @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <ul>
+                <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
+            </ul>
+        }
+    </div>
+</div>
+    </div>
+
+<script>
+    function handleCardClick(event) {
+        const jobApplicationId = event.currentTarget.dataset.id;
+        window.location.href = "/JobApplication/Details/" + jobApplicationId;
+    }
+
+    const cardElements = document.querySelectorAll('.card');
+    cardElements.forEach(card => {
+        card.addEventListener('click', handleCardClick);
+    });
+</script>
