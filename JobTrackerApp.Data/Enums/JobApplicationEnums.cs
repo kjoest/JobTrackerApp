@@ -13,11 +13,11 @@ namespace JobTrackerApp.Data.Enums
         {
             [Display(Name = "Active Application")]
             [DisplayOrder(1)]
-            ActiveApplication,
+            ActiveApplications,
 
             [Display(Name = "Interview Scheduled")]
             [DisplayOrder(2)]
-            InterviewedScheduled,
+            InterviewScheduled,
 
             [Display(Name = "Rejected Applications")]
             [DisplayOrder(3)]
