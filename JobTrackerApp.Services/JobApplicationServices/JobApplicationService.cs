@@ -1,4 +1,5 @@
 ﻿using JobTrackerApp.Data.JobApplication;
+using JobTrackerApp.Models.CategoryUpdateModel;
 using JobTrackerApp.Models.JobApplicationModels;
 using JobTrackerApp.WebMVC.Data;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using static JobTrackerApp.Data.Enums.JobApplicationEnums;
 
 namespace JobTrackerApp.Services.JobApplicationServices
 {
@@ -104,6 +106,25 @@ namespace JobTrackerApp.Services.JobApplicationServices
 
                 return ctx.SaveChanges() == 1;
             }
+        }
+
+        public bool UpdateCategory(int jobApplicationId, string newCategory)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .JobApplications
+                    .SingleOrDefault(j => j.JobApplicationId == jobApplicationId && j.OwnerId == _userId);
+
+                if (entity != null)
+                {
+                    entity.Category = (JobApplicationCategory)Enum.Parse(typeof(JobApplicationCategory), newCategory);
+                    entity.ModifiedDate = DateTimeOffset.UtcNow;
+                    return ctx.SaveChanges() == 1;
+                }
+            }
+
+            return false;
         }
 
         public bool DeleteJobApplication(int id)

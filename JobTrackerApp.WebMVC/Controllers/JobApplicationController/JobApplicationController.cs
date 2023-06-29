@@ -1,4 +1,6 @@
-﻿using JobTrackerApp.Models.JobApplicationModels;
+﻿using JobTrackerApp.Data.JobApplication;
+using JobTrackerApp.Models.CategoryUpdateModel;
+using JobTrackerApp.Models.JobApplicationModels;
 using JobTrackerApp.Services.JobApplicationServices;
 using JobTrackerApp.WebMVC.Models;
 using Microsoft.AspNet.Identity;
@@ -7,7 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
+using static JobTrackerApp.Data.Enums.JobApplicationEnums;
 
 namespace JobTrackerApp.WebMVC.Controllers.JobApplicationController
 {
@@ -45,7 +49,7 @@ namespace JobTrackerApp.WebMVC.Controllers.JobApplicationController
             ModelState.AddModelError("", "Your Job Application could not be created. Try again later...");
 
             return View(model);
-         }
+        }
 
         // JobApplication/Details/{id}
         public ActionResult Details(int id)
@@ -53,7 +57,7 @@ namespace JobTrackerApp.WebMVC.Controllers.JobApplicationController
             var service = CreateJobApplicationService();
             var model = service.GetJobApplicationById(id);
 
-            if(model == null)
+            if (model == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -103,6 +107,31 @@ namespace JobTrackerApp.WebMVC.Controllers.JobApplicationController
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult UpdateCategory(int cardId, string newCategory)
+        {
+            var service = CreateJobApplicationService();
+            var jobApplication = service.GetJobApplicationById(cardId);
+
+            if (jobApplication != null)
+            {
+                if (Enum.TryParse(newCategory, out JobApplicationCategory categoryValue))
+                {
+                    jobApplication.Category = categoryValue;
+                    service.UpdateCategory(jobApplication.JobApplicationId, newCategory);
+                }
+                else
+                {
+                    // Handle invalid category value
+                    // For example, display an error message or take appropriate action
+                }
+
+                //return Json(new { success = true });
+            }
+
+            return RedirectToAction("Index");
+        }
+
         // JobApplication/Delete/{id}
         [ActionName("Delete")]
         public ActionResult Delete(int id)
@@ -122,7 +151,7 @@ namespace JobTrackerApp.WebMVC.Controllers.JobApplicationController
             TempData["SaveResult"] = "Your Job Application was successfully deleted.";
             return RedirectToAction("Index");
         }
- 
+
         public JobApplicationService CreateJobApplicationService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

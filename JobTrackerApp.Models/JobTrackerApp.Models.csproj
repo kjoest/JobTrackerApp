@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryUpdateModel\CategoryUpdateModel.cs" />
     <Compile Include="JobApplicationModels\JobApplicationCreate.cs" />
     <Compile Include="JobApplicationModels\JobApplicationDetail.cs" />
     <Compile Include="JobApplicationModels\JobApplicationEdit.cs" />
