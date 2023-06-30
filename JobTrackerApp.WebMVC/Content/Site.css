@@ -113,20 +113,45 @@ li {
 
 /* Job Application Home Page */
 
-/*.job-application-page {
-    height: 100%;
-}*/
+.create-job-link a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff5f5f;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#logout-button ul li {
+    display: inline-block;
+}
+
+#logout-button ul li a {
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-top: 7rem;
-    margin-left: 7rem;
+    margin-top:5rem;
+    margin-left: 10rem;
 }
 
 .category-section {
-    margin: 1.25rem;
+    margin: 2rem;
 }
 
 .card-heading {
@@ -135,7 +160,8 @@ li {
 }
 
 .card {
-    width: 300px;
+    width: 250px;
+    height: 200px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 10px;
@@ -146,6 +172,23 @@ li {
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
 }
+
+.card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.card h4 {
+    font-size: 1rem;
+}
+
+.card h6 {
+    font-size: 1rem;
+    justify-content: center;
+    text-align: center;
+    margin-left: 0;
+}
+
     .card:hover {
         transform: scale(1.05);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -155,8 +198,6 @@ li {
     text-align: center;
     margin-bottom: 10px;
 }
-
-
 
 .display-category {
     font-weight: 900;
@@ -181,3 +222,5 @@ li {
     .card-footer a {
         margin-right: 10px;
     }
+
+/* Job Application Detail Page */

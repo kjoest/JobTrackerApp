@@ -10,6 +10,16 @@
     @Html.ActionLink("Create Job Application", "Create")
 </p>
 
+<div id="logout-button">
+    @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul>
+            <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
+        </ul>
+    }
+</div>
+
 @if (TempData.ContainsKey("SaveResult"))
 {
     <div class="alert alert-success fade in" role="alert">
@@ -79,7 +89,7 @@
             }
         </div>
 
-        <div id="logout-button">
+        @*<div id="logout-button">
             @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
             {
                 @Html.AntiForgeryToken()
@@ -87,7 +97,7 @@
                     <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
                 </ul>
             }
-        </div>
+        </div>*@
     </div>
 </div>
 

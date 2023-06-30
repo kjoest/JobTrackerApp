@@ -1,6 +1,7 @@
 ﻿@model JobTrackerApp.Models.JobApplicationModels.JobApplicationDetail
 
-<div>
+<div class="job-application-detail">
+    <div class="big-card @Model.Category"></div>
     <h4>JobApplicationDetail</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -94,6 +95,7 @@
 
     </dl>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.JobApplicationId }) |
     @Html.ActionLink("Back to List", "Index")
