@@ -4,104 +4,134 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Job Applications</h2>
+<div class="main-job-application-page">
+    <h2>Job Applications</h2>
 
-<p class="create-job-link">
-    @Html.ActionLink("Create Job Application", "Create")
-</p>
+    <p class="create-job-link">
+        @Html.ActionLink("Create New Job Application", "Create")
+    </p>
 
-<div id="logout-button">
-    @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
-    {
-        @Html.AntiForgeryToken()
-        <ul>
-            <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
-        </ul>
-    }
-</div>
-
-@if (TempData.ContainsKey("SaveResult"))
-{
-    <div class="alert alert-success fade in" role="alert">
-        <button type="button" class="close" data-dismiss="alert">
-            <span>&times;</span>
-        </button>
-        @TempData["SaveResult"]
-    </div>
-}
-<div class="job-application-page">
-    <div class="card-container">
-        @{
-            var orderedApplications = Model.OrderBy(item =>
-            {
-                if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewScheduled)
-                    return 0;
-                else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplications)
-                    return 1;
-                else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications)
-                    return 2;
-                else
-                    return 3;
-            }).ThenBy(item => item.CompanyName);
+    <div id="logout-button">
+        @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <ul>
+                @*<li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>*@
+                <li><a href="#" id="logout-link">Log Out</a></li>
+            </ul>
         }
+    </div>
 
-        <div class="category-section" data-category="ActiveApplications">
-            <h2 class="card-heading">Active Applications</h2>
-            <hr />
-            @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplications))
-            {
-                <div class="card" data-id="@item.JobApplicationId" style="background-color: #e66464;" draggable="true">
-                    <div class="card-body">
-                        <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
-                        <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
-                        <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
-                    </div>
-                </div>
-            }
+    <div id="logout-overlay">
+        <div id="logout-panel">
+            <h3>Are you sure you want to log out?</h3>
+            <div id="logout-actions">
+                <button id="confirm-button">Log Out</button>
+                <button id="cancel-button">Cancel</button>
+            </div>
         </div>
+    </div>
 
-        <div class="category-section" data-category="InterviewScheduled">
-            <h2 class="card-heading">Interview Scheduled</h2>
-            <hr />
-            @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewScheduled))
-            {
-                <div class="card" data-id="@item.JobApplicationId" style="background-color: #6cf8e1;" draggable="true">
-                    <div class="card-body">
-                        <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
-                        <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
-                        <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
-                    </div>
-                </div>
-            }
+    @if (TempData.ContainsKey("SaveResult"))
+    {
+        <div class="alert alert-success fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            @TempData["SaveResult"]
         </div>
-        <div class="category-section" data-category="RejectedApplications">
-            <h2 class="card-heading">Rejected Applications</h2>
-            <hr />
-            @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications))
-            {
-                <div class="card" data-id="@item.JobApplicationId" style="background-color: #fff0c8;" draggable="true">
-                    <div class="card-body">
-                        <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
-                        <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
-                        <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
-                    </div>
-                </div>
-            }
-        </div>
-
-        @*<div id="logout-button">
-                @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
+    }
+    <div class="job-application-page">
+        <div class="card-container">
+            @{
+                var orderedApplications = Model.OrderBy(item =>
                 {
-                    @Html.AntiForgeryToken()
-                    <ul>
-                        <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
-                    </ul>
+                    if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewScheduled)
+                        return 0;
+                    else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplications)
+                        return 1;
+                    else if (item.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications)
+                        return 2;
+                    else
+                        return 3;
+                }).ThenBy(item => item.CompanyName);
+            }
+
+            <div class="category-section" data-category="ActiveApplications">
+                <h2 class="card-heading">Active Applications</h2>
+                <hr />
+                @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.ActiveApplications))
+                {
+                    <div class="card" data-id="@item.JobApplicationId" style="background-color: #e66464;" draggable="true">
+                        <div class="card-body">
+                            <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                            <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
+                            <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
+                        </div>
+                    </div>
                 }
-            </div>*@
+            </div>
+
+            <div class="category-section" data-category="InterviewScheduled">
+                <h2 class="card-heading">Interview Scheduled</h2>
+                <hr />
+                @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.InterviewScheduled))
+                {
+                    <div class="card" data-id="@item.JobApplicationId" style="background-color: #6cf8e1;" draggable="true">
+                        <div class="card-body">
+                            <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                            <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
+                            <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="category-section" data-category="RejectedApplications">
+                <h2 class="card-heading">Rejected Applications</h2>
+                <hr />
+                @foreach (var item in orderedApplications.Where(x => x.Category == JobTrackerApp.Data.Enums.JobApplicationEnums.JobApplicationCategory.RejectedApplications))
+                {
+                    <div class="card" data-id="@item.JobApplicationId" style="background-color: #fff0c8;" draggable="true">
+                        <div class="card-body">
+                            <h3>@Html.DisplayFor(modelItem => item.JobTitle) </h3>
+                            <h4>@Html.DisplayFor(modelItem => item.CompanyName) </h4>
+                            <h6 class="display-category">@Html.DisplayFor(modelItem => item.DisplayCategory) </h6>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            @*<div id="logout-button">
+                    @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <ul>
+                            <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
+                        </ul>
+                    }
+                </div>*@
+        </div>
     </div>
 </div>
 
 <script>
+    document.getElementById('logout-link').addEventListener('click', function (e) {
+        e.preventDefault();
+        document.getElementById('logout-overlay').style.display = 'block';
+    });
+
+    document.getElementById('cancel-button').addEventListener('click', function () {
+        closeLogoutPanel();
+    });
+
+    document.getElementById('confirm-button').addEventListener('click', function () {
+        document.getElementById('logout-form').submit();
+    });
+
+    function closeLogoutPanel() {
+        document.getElementById('logout-overlay').style.display = 'none';
+    }
+
     function handleCardClick(event) {
         const jobApplicationId = event.currentTarget.dataset.id;
         window.location.href = "/JobApplication/Details/" + jobApplicationId;

@@ -37,13 +37,13 @@ header {
     margin: auto 0;
     display: flex;
     flex-direction: row;
-    gap: 50px;
     color: #000050;
     font-weight: 900;
     font-size: 1.2em;
 }
 
-li {
+.header-menu li {
+    margin-right: 3rem;
     cursor: pointer;
 }
 
@@ -67,6 +67,8 @@ li {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    justify-content: center;
+    margin: 2rem;
 }
 
 .login-input-group {
@@ -79,7 +81,7 @@ li {
     width: 100%;
     height: 50px;
     padding: 5px;
-    margin: 0 auto;
+    margin: 5px auto;
     background-color: #e5ebf5;
     border: solid #efebf5 2px;
     border-radius: 15px;
@@ -113,10 +115,45 @@ li {
 
 /* Job Application Home Page */
 
+.main-job-application-page {
+    margin-top: 2rem;
+}
+
+#logout-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+#logout-panel {
+    background-color: #fff;
+    width: 300px;
+    height: 200px;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 100px auto;
+    transform: translateX(-100%);
+    animation: slideIn 0.3s forwards;
+}
+
 .create-job-link a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff5f5f;
+    /*background-color: #ff5f5f;*/
+    background-color: rgba(0, 0, 0, 0.1);
     color: #fff;
     font-size: 16px;
     text-decoration: none;
@@ -146,7 +183,7 @@ li {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-top:5rem;
+    margin-top: 3rem;
     margin-left: 10rem;
 }
 

@@ -88,10 +88,15 @@
             </dl>
             <h4>@Html.DisplayFor(model => model.DisplayCategory)</h4>
         </div>
+        <div class="action-link">
+            @Html.ActionLink("Edit Job", "Edit", new { id = Model.JobApplicationId }) |
+            @Html.ActionLink("Delete Job", "Delete", new { id = Model.JobApplicationId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
     </div>
 </div>
 
-<p>
+@*<p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.JobApplicationId }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
