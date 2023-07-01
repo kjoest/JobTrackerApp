@@ -1,99 +1,94 @@
 ﻿@model JobTrackerApp.Models.JobApplicationModels.JobApplicationDetail
 
 <div class="job-application-detail">
-    <div class="big-card @Model.Category"></div>
-    <h4>JobApplicationDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.JobApplicationId)
-        </dt>
+    <div class="big-card @Model.Category">
+        <h4>Job Application Information</h4>
+        <hr />
+        <div class="card-content">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.JobApplicationId)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.JobApplicationId)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.JobApplicationId)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.JobTitle)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.JobTitle)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.JobTitle)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.JobTitle)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CompanyName)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CompanyName)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CompanyName)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.CompanyName)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationMethod)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApplicationMethod)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationMethod)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ApplicationMethod)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicatonMaterials)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApplicatonMaterials)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApplicatonMaterials)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ApplicatonMaterials)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactPerson)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ContactPerson)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ContactPerson)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ContactPerson)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ContactInformation)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ContactInformation)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ContactInformation)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ContactInformation)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationNotes)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApplicationNotes)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationNotes)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ApplicationNotes)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ApplicationDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Category)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ApplicationDate)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApplicationDate)
-        </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApplicationDate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedDate)
-        </dd>
-
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.ModifiedDate)
+                </dd>
+            </dl>
+            <h4>@Html.DisplayFor(model => model.DisplayCategory)</h4>
+        </div>
+    </div>
 </div>
 
 <p>

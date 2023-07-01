@@ -90,14 +90,14 @@
         </div>
 
         @*<div id="logout-button">
-            @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
-            {
-                @Html.AntiForgeryToken()
-                <ul>
-                    <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
-                </ul>
-            }
-        </div>*@
+                @using (Html.BeginForm("logoff", "account", FormMethod.Post, new { id = "logout-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <ul>
+                        <li><a href="javascript:document.getElementById('logout-form').submit()">Log Out</a></li>
+                    </ul>
+                }
+            </div>*@
     </div>
 </div>
 
@@ -111,8 +111,6 @@
     cardElements.forEach(card => {
         card.addEventListener('click', handleCardClick);
     });
-
-    @* new javascript *@
 
     function handleDragStart(event) {
         event.dataTransfer.setData("text/plain", event.target.dataset.id);
@@ -135,13 +133,22 @@
             card.dataset.category = newCategory;
 
             const categoryDisplay = card.querySelector('.display-category');
-            categoryDisplay.textContent = newCategory;
+            const enumName = getCategoryEnumName(newCategory);
+            categoryDisplay.textContent = enumName;
 
-            const categoryNameWithSpace = getCategoryNameWithSpace(newCategory);
-            categoryDisplay.textContent = categoryNameWithSpace;
-            function getCategoryNameWithSpace(category) {
-                return category.replace(/([A-Z])/g, ' $1').trim();
+            function getCategoryEnumName(category) {
+                switch (category) {
+                    case 'ActiveApplications':
+                        return 'Active Application';
+                    case 'InterviewScheduled':
+                        return 'Interview Scheduled';
+                    case 'RejectedApplications':
+                        return 'Rejected Application';
+                    default:
+                        return '';
+                }
             }
+
 
             const backgroundColor = getCategoryBackgroundColor(newCategory);
             card.style.backgroundColor = backgroundColor;

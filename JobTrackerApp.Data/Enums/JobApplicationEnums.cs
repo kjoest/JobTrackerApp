@@ -19,7 +19,7 @@ namespace JobTrackerApp.Data.Enums
             [DisplayOrder(2)]
             InterviewScheduled,
 
-            [Display(Name = "Rejected Applications")]
+            [Display(Name = "Rejected Application")]
             [DisplayOrder(3)]
             RejectedApplications
         }
